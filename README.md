@@ -22,6 +22,8 @@ See [English template user manual](./docs/english.md) for more details.
 
 ## 个性化修改
 
+当无助的毕业生因学院的word模板发愁时，zjuthesis说latex，于是世界有了光
+
 ### packages
 
 添加`amsmath`，`amsthm`和`cleveref`环境。`cleveref`环境置于最后。
