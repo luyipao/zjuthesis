@@ -20,6 +20,32 @@ See [English template user manual](./docs/english.md) for more details.
 
 [GitHub 讨论版](https://github.com/TheNetAdmin/zjuthesis/discussions)
 
+## 个性化修改
+
+### packages
+
+添加`amsmath`，`amsthm`和`cleveref`环境。`cleveref`环境置于最后。
+
+我真的很需要`align`和`<environment>*`环境，虽然不再latex-core里面，但`amsmath`的使用也相当广泛了，我不理解原库为啥不用。
+
+`amsthm`和`cleveref`包，因为需要`lemma`环境且引用`lemma`环境得到`引理 *.*`，还要和`theorem`公用计数器，我查了很多方法，`hyperref`只能从零自定义，嫌麻烦直接用现成包。`lemma 1`作为整体超链接而非仅仅`1`。
+
+后续还可以添加`definition,proposition,formula,exercise,notation,note,remark,example,corollary`环境，不过这些写论文用不到，做笔记很有用。
+
+### command
+
+添加`theorem`，`lemma`环境。二者公用计数器`theorem`，该计数器随`section`重置为零。二者也可以不共用计数器，但是相信我，共用是最好的。
+
+重定义`amsthm`自带`proof`环境，使**证明**粗体。
+
+### numbering
+
+公式编号从`*-*`修改为`*.*`。理由是当引用多个公式时显示`(1-1)-(1-4)`很丑(编译出的结果`-`很长且两边有空格)。为了避免定理等格式产生冲突。引用公式时使用`eqref`，引用定理等使用`cref`，这保证`(*.*)`一定代表公式。引用公式较多时，使用`autoref`会得到大量`式 *.*`，不美观且十分啰嗦。
+
+### translation
+
+本科毕业设计默认使用`chaptermajornumbeing`，这导致外文翻译时编号按照chapter而非论文自身的`section`(论文通常用不到chapter吧...)，所以在translate文件中使用`\sectionmajornumbering`，来保证翻译与原文编号的一致。这样的好处就是不用大量`\label`和`\ref`，因为你保证了编号一致，直接用编号就行了，虽然很蠢...但是能省很多时间，缺点就是编号没有超链接。
+
 ## 使用
 
 zjuthesis 模板有三种使用方式，Overleaf，本地编译，或者 Container 编译：
