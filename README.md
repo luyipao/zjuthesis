@@ -48,6 +48,10 @@ See [English template user manual](./docs/english.md) for more details.
 
 本科毕业设计默认使用`chaptermajornumbeing`，这导致外文翻译时编号按照chapter而非论文自身的`section`(论文通常用不到chapter吧...)，所以在translate文件中使用`\sectionmajornumbering`，来保证翻译与原文编号的一致。这样的好处就是不用大量`\label`和`\ref`，因为你保证了编号一致，直接用编号就行了，虽然很蠢...但是能省很多时间，缺点就是编号没有超链接。
 
+### ref
+
+原库url已迷失在互联网的海洋，将论文编写规则url替换新的有效url。
+
 ## 使用
 
 zjuthesis 模板有三种使用方式，Overleaf，本地编译，或者 Container 编译：
