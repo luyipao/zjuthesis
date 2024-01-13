@@ -24,6 +24,8 @@ See [English template user manual](./docs/english.md) for more details.
 
 当无助的毕业生因学院的word模板发愁时，zjuthesis说latex，于是世界有了光
 
+针对math扩展格式
+
 ### packages
 
 添加`amsmath`，`amsthm`和`cleveref`环境。`cleveref`环境置于最后。
@@ -36,7 +38,7 @@ See [English template user manual](./docs/english.md) for more details.
 
 ### command
 
-添加`theorem`，`lemma`环境。二者公用计数器`theorem`，该计数器随`section`重置为零。二者也可以不共用计数器，但是相信我，共用是最好的。
+添加`theorem`，`lemma`环境。二者公用计数器`theorem`，该计数器随`section`重置为零。二者也可以不共用计数器，但是相信我，共用是最好的。[elegantbook](https://github.com/ElegantLaTeX/ElegantBook)里环境编号默认不共用，添加文档类选项usesamecnt改为公用，可以自己体验一下。
 
 重定义`amsthm`自带`proof`环境，使**证明**粗体。
 
@@ -44,9 +46,13 @@ See [English template user manual](./docs/english.md) for more details.
 
 公式编号从`*-*`修改为`*.*`。理由是当引用多个公式时显示`(1-1)-(1-4)`很丑(编译出的结果`-`很长且两边有空格)。为了避免定理等格式产生冲突。引用公式时使用`eqref`，引用定理等使用`cref`，这保证`(*.*)`一定代表公式。引用公式较多时，使用`autoref`会得到大量`式 *.*`，不美观且十分啰嗦。
 
+针对所有格式
+
 ### translation
 
 本科毕业设计默认使用`chaptermajornumbeing`，这导致外文翻译时编号按照chapter而非论文自身的`section`(论文通常用不到chapter吧...)，所以在translate文件中使用`\sectionmajornumbering`，来保证翻译与原文编号的一致。这样的好处就是不用大量`\label`和`\ref`，因为你保证了编号一致，直接用编号就行了，虽然很蠢...但是能省很多时间，缺点就是编号没有超链接。
+
+直接修改的源码，而非更改math文件夹，用layout.tex修改translation的格式不会。
 
 ### ref
 
